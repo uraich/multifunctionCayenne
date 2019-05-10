@@ -1,6 +1,6 @@
 # multifunctionCayenne
 making the Arduino multi-function board available on Cayenne
-## Contents of this repoitory
+## Contents of this repository
 The multi-function board features
 * 3 user push buttons which can be read out
 * 4 user LEDs
