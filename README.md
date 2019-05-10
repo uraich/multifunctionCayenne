@@ -20,3 +20,8 @@ This part has programs showing how to drive the LEDs, how to read out the switch
 
 The most tricky bit is the 7-segment display which needs a period update of its digits every ~ 25 ms in order to produce a steady display. This is accomplished using a timer triggering an interrupt service routine every 8 ms which refreshes one digit at a time.
 ## The Cayenne Client
+The Cayenne client builds on the experience gained with the hardware tests. It uses a ESP12 based WiFi shield to communicate with the internet. This shield is installed on an Arduino Mega and on top of it the mult-function board is placed building a 3 board sandwich. The WiFi shield has several problems, one of which the fact that it communicates with its host processor using AT commands on the Rx0 and Tx0 lines, which are also used for uploading and flashing code and for the Arduino console. When the WiFi shield is in use flashing will not work and the console must be switched off.
+When new code must be uploaded to the Arduino the Rx0 and Tx0 lines must disconnect from the WiFi shield, which can be done with the first 2 switches of the dip switch block.
+The factury setting for the baudrate of the WiFi board is 115200 baud. This is ok, as long as the interrupt service routine updating the 7-segment display is not running. With the 7-segment update switched on the update of a digit takes too long and character coming from the WiFi board's serial connection are lost. This can be avoided slowing down the communication speed to 9600 baud, which is fast enough for the few data exchanged.
+
+![WiFi shield](images/wifishield.png)
