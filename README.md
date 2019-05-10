@@ -10,6 +10,8 @@ The multi-function board features
 * an optional LM35 analog thermometer
 * an optional DS18B20 digital thermometer
 
+![Multifunctions Board](images/multifunction.png)
+
 The LM35 and the DS18B20 are exclusiv, only one of the two can be used at a time.
 The repository consists of two parts: the *driver* part with programs testing hardware access to the above sensors and actuators and a *cayenne* part which implements a Cayenne client reading out the sensors and sending the results to myDevices Cayenne or it takes commands from Cayenne widgets and drives the corresponding actuators. 
 
